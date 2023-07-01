@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply bg-background;
+}
+
 .text-heading1 {
   font-size: 30px;
   font-weight: 700;
@@ -12,7 +16,7 @@
   font-weight: 700;
 }
 
-.text-heading2 {
+.text-heading3 {
   font-size: 20px;
   font-weight: 700;
 }
