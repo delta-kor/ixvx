@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Jelly from './Jelly';
 
 interface Props {
   music: Music;
@@ -6,7 +7,7 @@ interface Props {
 
 export default function MusicCard({ music: { title, group, album } }: Props) {
   return (
-    <div className="flex p-md items-center gap-md rounded-md bg-gray">
+    <Jelly className="flex p-md items-center gap-md rounded-md bg-gray cursor-pointer select-none">
       <Image
         src={album}
         alt={title}
@@ -16,6 +17,6 @@ export default function MusicCard({ music: { title, group, album } }: Props) {
         <div className="text-heading3 text-white truncate">{title}</div>
         <div className="text-body1 text-white truncate">{group}</div>
       </div>
-    </div>
+    </Jelly>
   );
 }
