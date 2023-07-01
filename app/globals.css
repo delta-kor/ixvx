@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-heading1 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.text-heading2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.text-heading2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.text-subtitle1 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.text-body1 {
+  font-size: 16px;
+  font-weight: 400;
+}
