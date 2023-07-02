@@ -15,11 +15,7 @@ CameraNameMap.set('1take', '1TAKE');
 CameraNameMap.set('single_full', 'FULL');
 CameraNameMap.set('single_face', 'FACE');
 
-export default function CameraChip({
-  video: { type },
-  active,
-  onClick,
-}: Props) {
+export default function CameraChip({ video: { type }, active, onClick }: Props) {
   return (
     <Jelly
       small
@@ -30,9 +26,7 @@ export default function CameraChip({
     >
       <Icon
         type="camera"
-        className={`w-[14px] h-[14px] transition-colors ${
-          active ? 'text-white' : 'text-primary'
-        }`}
+        className={`w-[14px] h-[14px] transition-colors ${active ? 'text-white' : 'text-primary'}`}
       />
       <div
         className={`text-[14px] font-[700] transition-colors ${

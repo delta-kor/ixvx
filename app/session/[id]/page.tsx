@@ -34,6 +34,7 @@ export default function SessionPage({ params: { id } }: Props) {
   };
 
   const handleTimeChange = (time: number) => {
+    // console.log(time);
     const video = videoRef.current;
     const videoAnchor = video.anchor || 0;
     const sessionAnchor = session.anchor || 0;
@@ -48,19 +49,11 @@ export default function SessionPage({ params: { id } }: Props) {
 
   return (
     <div className="flex flex-col items-start lg:flex-row lg:min-h-[100vh]">
-      <Video
-        video={video}
-        start={startPosition}
-        onTimeChange={handleTimeChange}
-      />
+      <Video video={video} start={startPosition} onTimeChange={handleTimeChange} />
       <div className="flex flex-col flex-shrink-0 self-stretch lg:w-[320px] overflow-hidden">
         <SessionInfo music={music} />
         <div className="px-xl lg:px-md">
-          <CameraControl
-            session={session}
-            video={video}
-            onVideoChange={handleVideoChange}
-          />
+          <CameraControl session={session} video={video} onVideoChange={handleVideoChange} />
         </div>
       </div>
     </div>
