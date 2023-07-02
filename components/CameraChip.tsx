@@ -11,6 +11,9 @@ interface Props {
 const CameraNameMap: Map<VideoType, string> = new Map();
 CameraNameMap.set('main', 'MAIN');
 CameraNameMap.set('full', 'FULL');
+CameraNameMap.set('1take', '1TAKE');
+CameraNameMap.set('single_full', 'FULL');
+CameraNameMap.set('single_face', 'FACE');
 
 export default function CameraChip({
   video: { type },
@@ -21,18 +24,18 @@ export default function CameraChip({
     <Jelly
       small
       onClick={onClick}
-      className={`flex px-sm py-xs justify-center items-center gap-2xs rounded-sm cursor-pointer select-none transition-colors ${
+      className={`flex px-[6px] py-[2px] justify-center items-center gap-xs rounded-sm cursor-pointer select-none transition-colors ${
         active ? 'bg-primary' : 'bg-white'
       }`}
     >
       <Icon
         type="camera"
-        className={`w-lg h-lg transition-colors ${
+        className={`w-[14px] h-[14px] transition-colors ${
           active ? 'text-white' : 'text-primary'
         }`}
       />
       <div
-        className={`text-[16px] font-[700] transition-colors ${
+        className={`text-[14px] font-[700] transition-colors ${
           active ? 'text-white' : 'text-primary'
         }`}
       >
