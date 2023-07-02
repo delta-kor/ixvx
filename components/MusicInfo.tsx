@@ -12,9 +12,13 @@ export default function MusicInfo({ music: { title, group, album } }: Props) {
         alt={title}
         className="w-[100px] h-[100px] rounded-sm"
       />
-      <div className="flex flex-col content-center items-center gap-xs">
-        <div className="text-heading2 text-white">{title}</div>
-        <div className="text-body1 text-white">{group}</div>
+      <div className="flex flex-col content-center items-center gap-xs self-stretch">
+        <div className="text-heading2 text-white truncate self-stretch text-center">
+          {title}
+        </div>
+        <div className="text-body1 text-white truncate self-stretch text-center">
+          {group}
+        </div>
       </div>
     </div>
   );

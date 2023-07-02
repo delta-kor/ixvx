@@ -8,7 +8,7 @@ const IXVXStore: Music[] = [
     album: UnlockMyWorld,
     session: [
       {
-        id: 'mc230608',
+        id: 'f9_230608',
         title: 'M COUNTDOWN',
         date: '2023. 06. 08.',
         videos: [
