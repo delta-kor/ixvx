@@ -20,7 +20,7 @@ export default function MusicPage({ params: { id } }: Props) {
       <MusicInfo music={music} />
       <Cards title="Sessions">
         {music.session.map((session) => (
-          <SessionCard session={session} />
+          <SessionCard key={session.id} session={session} />
         ))}
       </Cards>
     </>

@@ -18,7 +18,7 @@ export default function SessionInfo({
           alt={title}
           className="w-[54px] h-[54px] flex-shrink-0 rounded-sm"
         />
-        <div className="flex flex-col content-center gap-2xs flex-grow min-w-0">
+        <div className="flex flex-col justify-center gap-2xs flex-grow min-w-0">
           <div className="text-heading3 text-white truncate">{title}</div>
           <div className="text-body1 text-white truncate">{group}</div>
         </div>

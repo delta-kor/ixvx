@@ -1,9 +1,15 @@
 import { IconBaseProps } from 'react-icons';
-import { BiChevronRight, BiSolidBox, BiSolidRightArrow } from 'react-icons/bi';
+import {
+  BiChevronRight,
+  BiSolidBox,
+  BiSolidRightArrow,
+  BiSolidVideo,
+} from 'react-icons/bi';
 
 const Icons = {
   logo: BiSolidBox,
   chevron_right: BiChevronRight,
+  camera: BiSolidVideo,
 };
 
 export type IconType = keyof typeof Icons;

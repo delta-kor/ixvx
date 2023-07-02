@@ -11,7 +11,7 @@ export default function SessionCard({ session }: Props) {
 
   return (
     <Link href={`/session/${session.id}`}>
-      <Jelly className="flex flex-col content-center items-center rounded-md bg-gray">
+      <Jelly className="flex flex-col justify-center items-center rounded-md bg-gray">
         <img src={imageSrc} className="aspect-video self-stretch rounded-sm" />
         <div className="flex px-lg py-md flex-col gap-xs self-stretch">
           <div className="text-heading3 text-white truncate">

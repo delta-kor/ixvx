@@ -1,14 +1,16 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { MouseEventHandler, useEffect, useRef, useState } from 'react';
 
 interface Props {
   className?: string;
+  small?: boolean;
+  onClick?: MouseEventHandler;
   children: React.ReactNode;
 }
 
-export default function Jelly({ className, children }: Props) {
+export default function Jelly({ className, small, onClick, children }: Props) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [scalePeriod, setScalePeriod] = useState<number>(0);
 
@@ -27,7 +29,7 @@ export default function Jelly({ className, children }: Props) {
     const element = wrapperRef.current;
     if (!element) return;
     const { width } = element.getBoundingClientRect();
-    setScalePeriod(1 - (width - 8) / width);
+    setScalePeriod(1 - (width - (small ? 2 : 8)) / width);
   };
 
   return (
@@ -36,6 +38,7 @@ export default function Jelly({ className, children }: Props) {
       whileTap={{ scale: 1 - scalePeriod }}
       whileHover={{ scale: 1 + scalePeriod }}
       transition={{ duration: 0.3, type: 'spring' }}
+      onClick={onClick}
       ref={wrapperRef}
     >
       {children}

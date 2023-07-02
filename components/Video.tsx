@@ -8,9 +8,7 @@ interface Props {
 
 export default function Video({ video: { id } }: Props) {
   return (
-    <div
-      className={'w-full aspect-video lg:h-[100vh] lg:aspect-auto bg-primary'}
-    >
+    <div className={'w-full aspect-video lg:h-[100vh] lg:aspect-auto bg-gray'}>
       <Youtube
         videoId={id}
         className={'w-full h-full'}
