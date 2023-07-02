@@ -6,7 +6,7 @@ interface Props {
 
 export default function SessionInfo({ music }: Props) {
   return (
-    <div className="flex px-xl py-md items-center gap-md">
+    <div className="flex px-xl py-md items-center gap-md lg:px-lg lg:py-lg">
       <Image
         src={music.album}
         alt={music.title}

@@ -1,4 +1,5 @@
 import SessionInfo from '@/components/SessionInfo';
+import Video from '@/components/Video';
 import IXVX from '@/lib/ixvx';
 import { notFound } from 'next/navigation';
 
@@ -14,8 +15,11 @@ export default function SessionPage({ params: { id } }: Props) {
   if (!session) return notFound();
 
   return (
-    <>
-      <SessionInfo music={music} />
-    </>
+    <div className="flex flex-col items-start lg:flex-row lg:min-h-[100vh]">
+      <Video video={session.videos[0]} />
+      <div className="flex flex-col lg:w-[400px]">
+        <SessionInfo music={music} />
+      </div>
+    </div>
   );
 }
