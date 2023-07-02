@@ -14,6 +14,13 @@ const IXVXStore: Music[] = [
         videos: [
           { id: '12wE8piFkfo', type: 'main' },
           { id: 'LZVVV0UkWHE', type: 'full' },
+          { id: 'pN4FKoKH1UY', type: 'single_full', member: 'Hayoung' },
+          { id: 'jryio89EE2k', type: 'single_full', member: 'Jisun' },
+          { id: '1iB4VufTZTo', type: 'single_full', member: 'Chaeyoung' },
+          { id: 'ItQ_cE1nZ1Y', type: 'single_full', member: 'Nagyung' },
+          { id: 'qygwNJjXODI', type: 'single_face', member: 'Nagyung' },
+          { id: 'uL5-y3NB9Gk', type: 'single_full', member: 'Jihun' },
+          { id: 'Ldtx1Fq2XTw', type: 'single_face', member: 'Jihun' },
         ],
       },
     ],
