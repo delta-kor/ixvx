@@ -4,12 +4,10 @@ import MusicCard from '@/components/MusicCard';
 
 export default function MainPage() {
   return (
-    <div>
-      <Cards title="Musics">
-        {IXVX.getAllMusics().map((music) => (
-          <MusicCard key={music.id} music={music} />
-        ))}
-      </Cards>
-    </div>
+    <Cards title="Musics">
+      {IXVX.getAllMusics().map((music) => (
+        <MusicCard key={music.id} music={music} />
+      ))}
+    </Cards>
   );
 }

@@ -6,7 +6,17 @@ const IXVXStore: Music[] = [
     title: '#menow',
     group: 'fromis_9',
     album: UnlockMyWorld,
-    session: [],
+    session: [
+      {
+        id: 'mc230608',
+        title: 'M COUNTDOWN',
+        date: '2023. 06. 08.',
+        videos: [
+          { id: '12wE8piFkfo', type: 'main' },
+          { id: 'LZVVV0UkWHE', type: 'full' },
+        ],
+      },
+    ],
   },
   {
     id: 'menow2',

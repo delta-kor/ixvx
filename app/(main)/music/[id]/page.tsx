@@ -1,4 +1,6 @@
+import Cards from '@/components/Cards';
 import MusicInfo from '@/components/MusicInfo';
+import SessionCard from '@/components/SessionCard';
 import IXVX from '@/lib/ixvx';
 import { notFound } from 'next/navigation';
 
@@ -14,8 +16,13 @@ export default function MusicPage({ params: { id } }: Props) {
   if (!music) return notFound();
 
   return (
-    <div>
+    <>
       <MusicInfo music={music} />
-    </div>
+      <Cards title="Sessions">
+        {music.session.map((session) => (
+          <SessionCard session={session} />
+        ))}
+      </Cards>
+    </>
   );
 }
