@@ -6,13 +6,13 @@ interface Props {
   video: Video;
 }
 
-export default function Video({ video }: Props) {
+export default function Video({ video: { id } }: Props) {
   return (
     <div
       className={'w-full aspect-video lg:h-[100vh] lg:aspect-auto bg-primary'}
     >
       <Youtube
-        videoId={video.id}
+        videoId={id}
         className={'w-full h-full'}
         opts={{
           width: '100%',
