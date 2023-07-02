@@ -10,6 +10,7 @@ interface Session {
   id: string;
   title: string;
   date: string;
+  anchor?: number;
   videos: Video[];
 }
 
@@ -19,4 +20,5 @@ interface Video {
   id: string;
   type: VideoType;
   member?: string;
+  anchor?: number;
 }
