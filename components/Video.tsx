@@ -17,7 +17,7 @@ export default function Video({ video: { id }, start, onTimeChange }: Props) {
   const videoIdRef = useRef<string>(id);
 
   useEffect(() => {
-    intervalRef.current = setInterval(updateTime, 100);
+    intervalRef.current = setInterval(updateTime, 25);
 
     return () => clearInterval(intervalRef.current);
   }, []);
