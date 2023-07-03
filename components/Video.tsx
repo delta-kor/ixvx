@@ -13,25 +13,36 @@ export default function Video({ video: { id }, start, onTimeChange }: Props) {
   const youtubeRef = useRef<any>(null);
   const intervalRef = useRef<any>(null);
 
+  const startRef = useRef<number>(start);
+  const videoIdRef = useRef<string>(id);
+
   useEffect(() => {
     intervalRef.current = setInterval(updateTime, 100);
 
     return () => clearInterval(intervalRef.current);
   }, []);
 
+  useEffect(() => {
+    updateVideo();
+  }, [id, start]);
+
   const updateTime = () => {
     const youtube = youtubeRef.current;
-    if (youtube) {
-      youtube.internalPlayer
-        .getCurrentTime()
-        .then((time: number) => onTimeChange(time || 0));
-    }
+    if (!youtube) return false;
+    youtube.internalPlayer.getCurrentTime().then((time: number) => onTimeChange(time || 0));
+  };
+
+  const updateVideo = () => {
+    const youtube = youtubeRef.current;
+    if (!youtube) return false;
+
+    youtube.internalPlayer.loadVideoById(id, start);
   };
 
   return (
     <div className={'w-full aspect-video lg:h-[100vh] lg:aspect-auto bg-gray'}>
       <Youtube
-        videoId={id}
+        videoId={videoIdRef.current}
         className={'w-full h-full'}
         ref={youtubeRef}
         opts={{
@@ -40,7 +51,7 @@ export default function Video({ video: { id }, start, onTimeChange }: Props) {
           playerVars: {
             autoplay: 1,
             color: 'white',
-            start,
+            start: startRef.current,
           },
         }}
       />
