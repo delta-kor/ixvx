@@ -14,7 +14,7 @@ interface Session {
   videos: Video[];
 }
 
-type VideoType = 'main' | 'full' | '1take' | 'live' | 'single_full' | 'single_face';
+type VideoType = 'main' | 'full' | '1take' | 'tower' | 'live' | 'single_full' | 'single_face';
 
 interface Video {
   id: string;

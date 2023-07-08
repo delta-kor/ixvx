@@ -5,6 +5,7 @@ const VideoTypesOrder: VideoType[] = [
   'main',
   'full',
   '1take',
+  'tower',
   'live',
   'single_face',
   'single_full',
