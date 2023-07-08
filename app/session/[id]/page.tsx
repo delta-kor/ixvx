@@ -19,7 +19,6 @@ export default function SessionPage({ params: { id } }: Props) {
   if (!session) return notFound();
 
   const [video, setVideoState] = useState<Video>(session.videos[0]);
-  const [start, setStart] = useState<number>(0);
 
   const videoRef = useRef<Video>(video);
   const absoluteTimeRef = useRef<number>(0);

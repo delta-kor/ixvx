@@ -14,11 +14,11 @@ interface Session {
   videos: Video[];
 }
 
-type VideoType = 'main' | 'full' | '1take' | 'single_full' | 'single_face';
+type VideoType = 'main' | 'full' | '1take' | 'live' | 'single_full' | 'single_face';
 
 interface Video {
   id: string;
   type: VideoType;
   member?: string;
-  anchor?: number;
+  anchor?: number | null;
 }
