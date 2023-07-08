@@ -9,8 +9,8 @@ module.exports = {
     colors: {
       primary: '#4A99F6',
       white: '#FFFFFF',
-      background: '#2B2B2B',
-      gray: '#3A3A3A',
+      background: '#25272B',
+      gray: '#36383C',
     },
     spacing: {
       '2xs': 2,

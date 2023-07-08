@@ -29,7 +29,7 @@ export default function Jelly({ className, small, onClick, children }: Props) {
     const element = wrapperRef.current;
     if (!element) return;
     const { width } = element.getBoundingClientRect();
-    setScalePeriod(1 - (width - (small ? 2 : 8)) / width);
+    setScalePeriod(1 - (width - (small ? 3 : 8)) / width);
   };
 
   return (

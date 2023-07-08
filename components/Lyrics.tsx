@@ -1,3 +1,7 @@
+import { Nanum_Gothic } from 'next/font/google';
+
+const font = Nanum_Gothic({ subsets: ['latin'], weight: ['400', '800'] });
+
 interface Props {
   music: Music;
   lyrics: any;
@@ -7,7 +11,7 @@ interface Props {
 export default function Lyrics({ music, lyrics, time }: Props) {
   if (!lyrics) return null;
 
-  const timeMs = time * 1000 + 100;
+  const timeMs = time * 1000;
   const keys = Object.keys(lyrics).map(Number);
 
   let nextKeyIndex = keys.findIndex((key) => key > timeMs);
@@ -18,11 +22,13 @@ export default function Lyrics({ music, lyrics, time }: Props) {
   const nextLyrics = lyrics[keys[nextKeyIndex]];
 
   return (
-    <div className="flex px-md py-md flex-col justify-center items-center gap-sm rounded-md bg-gray">
-      <div className="text-[16px] font-bold text-white text-center self-stretch truncate">
+    <div className={`flex flex-col py-xs justify-center items-center gap-xs ${font.className}`}>
+      <div className="text-[16px] font-bold text-white text-left self-stretch truncate">
         {currentLyrics || `${music.title} - ${music.group}`}
       </div>
-      <div className="text-[16px] text-white text-center self-stretch truncate">{nextLyrics}</div>
+      <div className="text-[16px] text-white text-left self-stretch opacity-50 truncate">
+        {nextLyrics}
+      </div>
     </div>
   );
 }
