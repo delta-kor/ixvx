@@ -7,7 +7,7 @@ import Video from '@/components/Video';
 import IXVX from '@/lib/ixvx';
 import LyricsStore from '@/store/lyrics.store';
 import { notFound } from 'next/navigation';
-import { memo, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 
 interface Props {
   params: {
@@ -15,12 +15,15 @@ interface Props {
   };
 }
 
-export default function SessionPage({ params: { id } }: Props) {
-  const [session, music] = IXVX.getSession(id);
+export default function VideoPage({ params: { id } }: Props) {
+  const music = IXVX.getMusic(id);
 
-  if (!session) return notFound();
+  if (!music) return notFound();
 
-  const [video, setVideoState] = useState<Video>(session.videos[0]);
+  const initialSession = music.session[0];
+  const [displaySession, setDisplaySession] = useState<Session>(initialSession);
+
+  const [video, setVideoState] = useState<Video>(initialSession.videos[0]);
   const [time, setTime] = useState<number>(0);
 
   const videoRef = useRef<Video>(video);
@@ -35,25 +38,31 @@ export default function SessionPage({ params: { id } }: Props) {
     setVideo(video);
   };
 
-  const handleTimeChange = useMemo(
-    () => (time: number) => {
-      // console.log(time);
-      const video = videoRef.current;
-      const videoAnchor = video.anchor || 0;
-      const sessionAnchor = music.anchor || 0;
-      const relativeTime = time - videoAnchor;
-      const absoluteTime = sessionAnchor + relativeTime;
-      absoluteTimeRef.current = absoluteTime;
-      time && setTime(absoluteTime);
-    },
-    []
-  );
+  const handleTimeChange = useCallback((time: number) => {
+    // console.log(time);
+    const video = videoRef.current;
+    const videoAnchor = video.anchor || 0;
+    const sessionAnchor = music.anchor || 0;
+    const relativeTime = time - videoAnchor;
+    const absoluteTime = sessionAnchor + relativeTime;
+    absoluteTimeRef.current = absoluteTime;
+    time && setTime(absoluteTime);
+  }, []);
+
+  const handleCameraAction = (type: 'left' | 'right') => {
+    let index = music.session.indexOf(displaySession);
+    if (type === 'left') index--;
+    if (type === 'right') index++;
+    if (index >= music.session.length) index = 0;
+    if (index < 0) index = music.session.length - 1;
+    setDisplaySession(music.session[index]);
+  };
 
   const videoAnchor = video.anchor || 0;
   const sessionAnchor = music.anchor || 0;
   const startPosition = useMemo(
     () => videoAnchor - sessionAnchor + absoluteTimeRef.current,
-    [video, session]
+    [video]
   );
 
   const lyrics = LyricsStore.get(music.id);
@@ -65,7 +74,12 @@ export default function SessionPage({ params: { id } }: Props) {
         <SessionInfo music={music} />
         <div className="flex flex-col px-xl lg:px-md gap-md">
           <Lyrics music={music} lyrics={lyrics} time={time} />
-          <CameraControl session={session} video={video} onVideoChange={handleVideoChange} />
+          <CameraControl
+            session={displaySession}
+            video={video}
+            onVideoChange={handleVideoChange}
+            onAction={handleCameraAction}
+          />
         </div>
       </div>
     </div>

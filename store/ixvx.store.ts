@@ -605,7 +605,6 @@ const IXVXStore: Music[] = [
           { id: 'WOuReoE8Yq0', type: 'main', anchor: 93.61 },
           { id: 'cGwJx9nkrwI', type: 'full', anchor: 38.67 },
           { id: '-8yllhAe2BE', type: '1take', anchor: 39.2 },
-          { id: 'pjC3ikRUaxs', type: 'full', anchor: 38.74 },
           { id: 'DZtKT1yw9mo', type: 'single_full', member: 'Sakura', anchor: 39.11 },
           { id: 'HuD1spqgJ44', type: 'single_face', member: 'Sakura', anchor: 38.76 },
           { id: 'jjd9K_tC1-E', type: 'single_full', member: 'Chaewon', anchor: 39.13 },
@@ -624,7 +623,6 @@ const IXVXStore: Music[] = [
         date: '2023. 5. 7.',
         videos: [
           { id: 'rHri4okJEBs', type: 'main', anchor: 104.37 },
-          { id: '5MDwrJpxNOg', type: 'full', anchor: 90.57 },
           { id: '1nOlI176Hyg', type: 'tower', anchor: 38.09 },
           { id: 'WUJYt4Zs3Ko', type: '1take', anchor: 37.5 },
           { id: 'S58ajuWh4HA', type: 'full', anchor: 85.3 },
@@ -693,7 +691,6 @@ const IXVXStore: Music[] = [
         date: '2023. 5. 14.',
         videos: [
           { id: '8yL7Pz8S-Qk', type: 'main', anchor: 39.57 },
-          { id: 'MFpcfXIDEcA', type: 'full', anchor: 38.85 },
           { id: 'SAja_iEkv-4', type: 'live', anchor: 123.96 },
           { id: 'sl7llriAi90', type: 'full', anchor: 38.61 },
           { id: 'Vq8wwmneRU8', type: 'single_full', member: 'Sakura', anchor: 38.47 },
@@ -738,7 +735,6 @@ const IXVXStore: Music[] = [
         date: '2023. 5. 21.',
         videos: [
           { id: 'EX2079C0PbQ', type: 'main', anchor: 38.07 },
-          { id: 'mSfXoJJvriw', type: 'full', anchor: 38.52 },
           { id: 'LunDAAjpjhM', type: 'full', anchor: 38.46 },
           { id: '3vv6_sIiMCg', type: 'single_full', member: 'Sakura', anchor: 45.2 },
           { id: 'Q7pR7uazGgU', type: 'single_face', member: 'Sakura', anchor: 47.45 },

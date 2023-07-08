@@ -1,5 +1,6 @@
 import { IconBaseProps } from 'react-icons';
 import {
+  BiChevronLeft,
   BiChevronRight,
   BiSolidBox,
   BiSolidRightArrow,
@@ -9,6 +10,7 @@ import {
 const Icons = {
   logo: BiSolidBox,
   chevron_right: BiChevronRight,
+  chevron_left: BiChevronLeft,
   camera: BiSolidVideo,
 };
 
