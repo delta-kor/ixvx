@@ -2,6 +2,7 @@ interface Music {
   id: string;
   title: string;
   group: string;
+  anchor?: number;
   album: StaticImageData;
   session: Session[];
 }
@@ -10,7 +11,6 @@ interface Session {
   id: string;
   title: string;
   date: string;
-  anchor?: number;
   videos: Video[];
 }
 
