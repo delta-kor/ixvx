@@ -75,6 +75,8 @@ export default function VideoPanel({ id }: Props) {
           <CameraControl
             session={displaySession}
             video={video}
+            lyrics={lyrics}
+            time={time}
             onVideoChange={handleVideoChange}
             onAction={handleCameraAction}
           />

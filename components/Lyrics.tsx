@@ -11,6 +11,12 @@ interface Props {
   time: number;
 }
 
+function sanitizeLyrics(lyrics: string | undefined): any {
+  if (!lyrics) return lyrics;
+  if (lyrics.startsWith('*')) return lyrics.split('*')[2];
+  else return lyrics;
+}
+
 export default function Lyrics({ music, lyrics, time }: Props) {
   if (!lyrics) return null;
 
@@ -41,7 +47,7 @@ export default function Lyrics({ music, lyrics, time }: Props) {
             animate={{ opacity: 0 }}
             className="absolute top-[-24px] left-[0] w-[100%] text-[16px] font-bold text-white text-left truncate"
           >
-            {previousLyrics}
+            {sanitizeLyrics(previousLyrics)}
           </motion.div>
         )}
         <motion.div
@@ -51,7 +57,7 @@ export default function Lyrics({ music, lyrics, time }: Props) {
           animate={{ opacity: 1 }}
           className="mb-xs text-[16px] font-bold text-white text-left truncate"
         >
-          {currentLyrics || `${music.title} - ${music.group}`}
+          {sanitizeLyrics(currentLyrics) || `${music.title} - ${music.group}`}
         </motion.div>
         <motion.div
           key={nextKeyIndex}
@@ -60,7 +66,7 @@ export default function Lyrics({ music, lyrics, time }: Props) {
           animate={{ opacity: 0.5 }}
           className="text-[16px] text-white text-left opacity-50 truncate"
         >
-          {nextLyrics}
+          {sanitizeLyrics(nextLyrics)}
         </motion.div>
         {secondNextLyrics && (
           <motion.div
@@ -69,7 +75,7 @@ export default function Lyrics({ music, lyrics, time }: Props) {
             initial={{ opacity: 0 }}
             className="text-[16px] font-bold text-white text-left self-stretch truncate"
           >
-            {secondNextLyrics}
+            {sanitizeLyrics(secondNextLyrics)}
           </motion.div>
         )}
       </AnimatePresence>

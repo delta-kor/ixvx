@@ -16,6 +16,8 @@ const VideoTypesOrder: VideoType[] = [
 interface Props {
   session: Session;
   video: Video;
+  lyrics: any;
+  time: number;
   onVideoChange(video: Video): void;
   onAction(type: 'left' | 'right'): void;
 }
@@ -23,9 +25,24 @@ interface Props {
 export default function CameraControl({
   session: { title, date, videos },
   video: { id },
+  lyrics,
+  time,
   onVideoChange,
   onAction,
 }: Props) {
+  const timeMs = time * 1000;
+  const keys = Object.keys(lyrics).map(Number);
+
+  let nextKeyIndex = keys.findIndex((key) => key > timeMs);
+  nextKeyIndex = nextKeyIndex < 0 ? keys.length : nextKeyIndex;
+
+  const currentKeyIndex = nextKeyIndex - 1;
+  const currentLyrics = lyrics && lyrics[keys[currentKeyIndex]];
+  const currentMember =
+    typeof currentLyrics === 'string' &&
+    currentLyrics.startsWith('*') &&
+    currentLyrics.split('*')[1].split('|');
+
   const groupVideos = videos
     .filter((video) => !video.member)
     .sort((a, b) => VideoTypesOrder.indexOf(a.type) - VideoTypesOrder.indexOf(b.type));
@@ -58,7 +75,15 @@ export default function CameraControl({
       <div className="flex flex-col self-stretch gap-sm">
         {membersMap.getAll().map(([member, videos]) => (
           <div key={member} className="flex justify-between">
-            <div className="text-[16px] font-[400] text-white truncate">{member}</div>
+            <div
+              className={`text-[16px] text-white truncate ${
+                currentMember && (currentMember.includes(member) || currentMember.includes('All'))
+                  ? 'font-[700]'
+                  : 'font-[400] opacity-70'
+              }`}
+            >
+              {member}
+            </div>
             <div className="flex flex-wrap justify-end items-center gap-sm">
               {videos
                 .sort((a, b) => VideoTypesOrder.indexOf(a.type) - VideoTypesOrder.indexOf(b.type))
