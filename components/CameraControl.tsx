@@ -24,12 +24,14 @@ interface Props {
 
 export default function CameraControl({
   session: { title, date, videos },
-  video: { id },
+  video,
   lyrics,
   time,
   onVideoChange,
   onAction,
 }: Props) {
+  const videoId = video.id;
+
   const timeMs = time * 1000;
   const keys = Object.keys(lyrics).map(Number);
 
@@ -54,9 +56,17 @@ export default function CameraControl({
   }
 
   return (
-    <div className="flex px-xl py-md flex-col justify-center items-center gap-md rounded-md bg-gray">
+    <div
+      className={`flex flex-col px-xl py-md justify-center items-center gap-md rounded-md bg-gray border-white border-2 transition ${
+        videos.includes(video) ? '' : 'border-opacity-0'
+      }`}
+    >
       <div className="flex justify-between items-center gap-sm self-stretch mx-[-8px]">
-        <Jelly small onClick={() => onAction('left')} className="flex-shrink-0 cursor-pointer">
+        <Jelly
+          small
+          onClick={() => onAction('left')}
+          className="flex-shrink-0 cursor-pointer select-none"
+        >
           <Icon type="chevron_left" className="w-[26px] h-[26px] text-primary" />
         </Jelly>
         <div className="flex flex-col justify-center items-center gap-2xs min-w-0 flex-grow">
@@ -76,7 +86,7 @@ export default function CameraControl({
         {membersMap.getAll().map(([member, videos]) => (
           <div key={member} className="flex justify-between">
             <div
-              className={`text-[16px] text-white truncate ${
+              className={`text-[16px] text-white truncate transition ${
                 currentMember && (currentMember.includes(member) || currentMember.includes('All'))
                   ? 'font-[700]'
                   : 'font-[400] opacity-70'
@@ -91,7 +101,7 @@ export default function CameraControl({
                   <CameraChip
                     key={video.id}
                     video={video}
-                    active={video.id === id}
+                    active={video.id === videoId}
                     onClick={() => onVideoChange(video)}
                   />
                 ))}
@@ -105,7 +115,7 @@ export default function CameraControl({
           <CameraChip
             key={video.id}
             video={video}
-            active={video.id === id}
+            active={video.id === videoId}
             onClick={() => onVideoChange(video)}
           />
         ))}
