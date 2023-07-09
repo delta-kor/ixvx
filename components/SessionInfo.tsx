@@ -7,7 +7,7 @@ interface Props {
   music: Music;
 }
 
-export default function SessionInfo({ music: { id, title, group, album } }: Props) {
+export default function SessionInfo({ music: { title, group, album } }: Props) {
   return (
     <Link href="/">
       <Jelly className="flex px-xl py-md items-center gap-md lg:px-lg lg:py-lg cursor-pointer select-none">
