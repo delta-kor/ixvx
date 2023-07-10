@@ -13,6 +13,7 @@ CameraNameMap.set('main', 'MAIN');
 CameraNameMap.set('full', 'FULL');
 CameraNameMap.set('1take', '1TAKE');
 CameraNameMap.set('tower', 'TOWER');
+CameraNameMap.set('side', 'SIDE');
 CameraNameMap.set('live', 'LIVE');
 CameraNameMap.set('single_full', 'FULL');
 CameraNameMap.set('single_face', 'FACE');

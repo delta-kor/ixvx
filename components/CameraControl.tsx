@@ -8,6 +8,7 @@ const VideoTypesOrder: VideoType[] = [
   'full',
   '1take',
   'tower',
+  'side',
   'live',
   'single_face',
   'single_full',
