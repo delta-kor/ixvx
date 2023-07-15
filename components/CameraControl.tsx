@@ -2,6 +2,7 @@ import ArrayMap from '@/lib/arraymap';
 import CameraChip from './CameraChip';
 import Icon from './Icon';
 import Jelly from './Jelly';
+import IXVX from '@/lib/ixvx';
 
 const VideoTypesOrder: VideoType[] = [
   'main',
@@ -24,13 +25,15 @@ interface Props {
 }
 
 export default function CameraControl({
-  session: { title, date, videos },
+  session,
   video,
   lyrics,
   time,
   onVideoChange,
   onAction,
 }: Props) {
+  const { id: sessionId, title, date, videos } = session;
+
   const videoId = video.id;
 
   const timeMs = time * 1000;
@@ -50,6 +53,9 @@ export default function CameraControl({
     .filter((video) => !video.member)
     .sort((a, b) => VideoTypesOrder.indexOf(a.type) - VideoTypesOrder.indexOf(b.type));
   const membersMap = new ArrayMap<string, Video>();
+
+  const members = IXVX.getMembers(sessionId);
+  members.forEach((member) => membersMap.set(member));
 
   for (const video of videos) {
     if (!video.member) continue;
@@ -82,10 +88,23 @@ export default function CameraControl({
           <Icon type="chevron_right" className="w-[26px] h-[26px] text-primary" />
         </Jelly>
       </div>
+
+      <hr className="w-full border-background" />
+      <div className="grid grid-cols-2 self-stretch gap-sm">
+        {groupVideos.map((video) => (
+          <CameraChip
+            key={video.id}
+            video={video}
+            active={video.id === videoId}
+            onClick={() => onVideoChange(video)}
+          />
+        ))}
+      </div>
+
       <hr className="w-full border-background" />
       <div className="flex flex-col self-stretch gap-sm">
         {membersMap.getAll().map(([member, videos]) => (
-          <div key={member} className="flex justify-between">
+          <div key={member} className="flex justify-between min-h-[32px]">
             <div
               className={`text-[16px] text-white truncate transition ${
                 currentMember && (currentMember.includes(member) || currentMember.includes('All'))
@@ -108,17 +127,6 @@ export default function CameraControl({
                 ))}
             </div>
           </div>
-        ))}
-      </div>
-      <hr className="w-full border-background" />
-      <div className="flex flex-wrap justify-center items-center gap-sm">
-        {groupVideos.map((video) => (
-          <CameraChip
-            key={video.id}
-            video={video}
-            active={video.id === videoId}
-            onClick={() => onVideoChange(video)}
-          />
         ))}
       </div>
     </div>

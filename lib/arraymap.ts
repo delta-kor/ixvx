@@ -5,6 +5,12 @@ class ArrayMap<K, V> {
     this.map = new Map();
   }
 
+  public set(key: K): this {
+    if (!this.map.has(key)) this.map.set(key, new Set());
+
+    return this;
+  }
+
   public add(key: K, value: V): this {
     if (!this.map.has(key)) this.map.set(key, new Set());
     this.map.get(key)!.add(value);

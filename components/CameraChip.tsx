@@ -1,6 +1,7 @@
 import { MouseEventHandler } from 'react';
 import Icon from './Icon';
 import Jelly from './Jelly';
+import SvgIcon from './SvgIcon';
 
 interface Props {
   video: Video;
@@ -19,25 +20,33 @@ CameraNameMap.set('single_full', 'FULL');
 CameraNameMap.set('single_face', 'FACE');
 
 export default function CameraChip({ video: { type }, active, onClick }: Props) {
+  if (type === 'single_face' || type === 'single_full') {
+    return (
+      <Jelly
+        small
+        onClick={onClick}
+        className={`flex justify-center items-center w-[32px] h-[32px] rounded-sm cursor-pointer select-none transition-colors ${
+          active ? 'bg-primary' : 'bg-lightgray'
+        }`}
+      >
+        <SvgIcon
+          type={type === 'single_face' ? 'horizontal' : 'vertical'}
+          className="w-[70%] h-[70%]"
+        />
+      </Jelly>
+    );
+  }
+
   return (
     <Jelly
       small
       onClick={onClick}
-      className={`flex px-[6px] py-[2px] justify-center items-center gap-xs rounded-sm cursor-pointer select-none transition-colors ${
-        active ? 'bg-primary' : 'bg-white'
+      className={`flex px-sm py-[6px] w-full flex-grow justify-center items-center gap-sm rounded-sm cursor-pointer select-none transition-colors ${
+        active ? 'bg-primary' : 'bg-lightgray'
       }`}
     >
-      <Icon
-        type="camera"
-        className={`w-[14px] h-[14px] transition-colors ${active ? 'text-white' : 'text-primary'}`}
-      />
-      <div
-        className={`text-[14px] font-[700] transition-colors ${
-          active ? 'text-white' : 'text-primary'
-        }`}
-      >
-        {CameraNameMap.get(type) || 'CAMERA'}
-      </div>
+      <SvgIcon type="horizontal" className="flex-shrink-0 w-[20px]" />
+      <div className="text-[16px] font-[700] text-white">{CameraNameMap.get(type) || 'CAMERA'}</div>
     </Jelly>
   );
 }

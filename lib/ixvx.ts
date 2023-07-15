@@ -16,6 +16,20 @@ class IXVX {
     }
     return [null, null];
   }
+
+  public static getMembers(sessionId: string): string[] {
+    const [session, music] = this.getSession(sessionId);
+    if (!music) return [];
+
+    const memberGroups: string[][] = [];
+    for (const session of music.session) {
+      const members = new Set<string>();
+      for (const video of session.videos) video.member && members.add(video.member);
+      memberGroups.push([...members]);
+    }
+
+    return memberGroups.reduce((a, b) => (a.length > b.length ? a : b));
+  }
 }
 
 export default IXVX;
