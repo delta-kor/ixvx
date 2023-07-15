@@ -2,13 +2,13 @@ import { IconBaseProps } from 'react-icons';
 import {
   BiChevronLeft,
   BiChevronRight,
-  BiSolidBox,
+  BiSolidCloud,
   BiSolidVideo,
   BiSolidVolumeFull,
 } from 'react-icons/bi';
 
 const Icons = {
-  logo: BiSolidBox,
+  logo: BiSolidCloud,
   chevron_right: BiChevronRight,
   chevron_left: BiChevronLeft,
   camera: BiSolidVideo,

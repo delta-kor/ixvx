@@ -20,8 +20,8 @@ export function generateMetadata({ params: { id } }: Props): Metadata {
   if (!music) return notFound();
 
   return {
-    title: music.title,
-    description: music.group,
+    title: `${music.title} - ${music.group}`,
+    description: 'SkyCon - Multicam Concert',
     openGraph: {
       images: [
         {

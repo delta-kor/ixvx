@@ -4,8 +4,8 @@ import MusicCard from '@/components/MusicCard';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'IXVX',
-  description: 'IXVX Explorer',
+  title: 'SkyCon',
+  description: 'Make your concert in your sky',
 };
 
 export default function MainPage() {

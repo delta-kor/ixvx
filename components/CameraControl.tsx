@@ -105,7 +105,7 @@ export default function CameraControl({
               <div className="text-[16px] text-white truncate">{member}</div>
               {currentMember &&
                 (currentMember.includes(member) || currentMember.includes('All')) && (
-                  <Icon type="mic" className="w-[18px] h-[18px] text-white opacity-40" />
+                  <Icon type="mic" className="w-[18px] h-[18px] text-white opacity-60" />
                 )}
             </div>
             <div className="flex flex-wrap justify-end items-center gap-sm">
