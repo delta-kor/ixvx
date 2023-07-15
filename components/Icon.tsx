@@ -3,8 +3,8 @@ import {
   BiChevronLeft,
   BiChevronRight,
   BiSolidBox,
-  BiSolidRightArrow,
   BiSolidVideo,
+  BiSolidVolumeFull,
 } from 'react-icons/bi';
 
 const Icons = {
@@ -12,6 +12,7 @@ const Icons = {
   chevron_right: BiChevronRight,
   chevron_left: BiChevronLeft,
   camera: BiSolidVideo,
+  mic: BiSolidVolumeFull,
 };
 
 export type IconType = keyof typeof Icons;

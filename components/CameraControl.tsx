@@ -63,11 +63,7 @@ export default function CameraControl({
   }
 
   return (
-    <div
-      className={`flex flex-col px-xl py-md justify-center items-center gap-md rounded-md bg-gray border-white border-2 transition ${
-        videos.includes(video) ? '' : 'border-opacity-0'
-      }`}
-    >
+    <div className="flex flex-col px-xl py-md justify-center items-center gap-md rounded-md bg-gray">
       <div className="flex justify-between items-center gap-sm self-stretch mx-[-8px]">
         <Jelly
           small
@@ -105,14 +101,12 @@ export default function CameraControl({
       <div className="flex flex-col self-stretch gap-sm">
         {membersMap.getAll().map(([member, videos]) => (
           <div key={member} className="flex justify-between min-h-[32px]">
-            <div
-              className={`text-[16px] text-white truncate transition ${
-                currentMember && (currentMember.includes(member) || currentMember.includes('All'))
-                  ? 'font-[700]'
-                  : 'font-[400] opacity-70'
-              }`}
-            >
-              {member}
+            <div className="flex gap-sm items-center">
+              <div className="text-[16px] text-white truncate">{member}</div>
+              {currentMember &&
+                (currentMember.includes(member) || currentMember.includes('All')) && (
+                  <Icon type="mic" className="w-[18px] h-[18px] text-white opacity-40" />
+                )}
             </div>
             <div className="flex flex-wrap justify-end items-center gap-sm">
               {videos
