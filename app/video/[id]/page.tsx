@@ -20,7 +20,7 @@ export function generateMetadata({ params: { id } }: Props): Metadata {
   if (!music) return notFound();
 
   return {
-    title: `${music.title} - ${music.group}`,
+    title: `${music.title} - ${music.group} | SkyCon`,
     description: 'SkyCon - Multicam Concert',
     openGraph: {
       images: [
@@ -30,6 +30,7 @@ export function generateMetadata({ params: { id } }: Props): Metadata {
           height: 720,
         },
       ],
+      description: 'SkyCon - Multicam Concert',
     },
   };
 }

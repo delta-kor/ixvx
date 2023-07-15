@@ -97,7 +97,6 @@ export default function CameraControl({
         ))}
       </div>
 
-      <hr className="w-full border-background" />
       <div className="flex flex-col self-stretch gap-sm">
         {membersMap.getAll().map(([member, videos]) => (
           <div key={member} className="flex justify-between min-h-[32px]">
@@ -105,7 +104,7 @@ export default function CameraControl({
               <div className="text-[16px] text-white truncate">{member}</div>
               {currentMember &&
                 (currentMember.includes(member) || currentMember.includes('All')) && (
-                  <Icon type="mic" className="w-[18px] h-[18px] text-white opacity-60" />
+                  <Icon type="mic" className="w-[18px] h-[18px] text-primary" />
                 )}
             </div>
             <div className="flex flex-wrap justify-end items-center gap-sm">

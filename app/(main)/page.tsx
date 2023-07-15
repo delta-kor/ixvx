@@ -6,6 +6,9 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'SkyCon',
   description: 'Make your concert in your sky',
+  openGraph: {
+    description: 'Make your concert in your sky',
+  },
 };
 
 export default function MainPage() {
