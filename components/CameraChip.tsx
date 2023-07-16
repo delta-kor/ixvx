@@ -1,5 +1,4 @@
 import { MouseEventHandler } from 'react';
-import Icon from './Icon';
 import Jelly from './Jelly';
 import SvgIcon from './SvgIcon';
 
