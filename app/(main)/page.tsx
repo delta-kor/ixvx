@@ -2,6 +2,7 @@ import IXVX from '@/lib/ixvx';
 import Cards from '@/components/Cards';
 import MusicCard from '@/components/MusicCard';
 import { Metadata } from 'next';
+import AdfitResponsive from '@/components/AdfitResponsive';
 
 export const metadata: Metadata = {
   title: 'SkyCon',
@@ -13,10 +14,15 @@ export const metadata: Metadata = {
 
 export default function MainPage() {
   return (
-    <Cards title="Musics">
-      {IXVX.getAllMusics().map((music) => (
-        <MusicCard key={music.id} music={music} />
-      ))}
-    </Cards>
+    <div className="flex flex-col gap-sm">
+      <div className="flex flex-col md:items-center self-stretch px-xl">
+        <AdfitResponsive />
+      </div>
+      <Cards title="Musics">
+        {IXVX.getAllMusics().map((music) => (
+          <MusicCard key={music.id} music={music} />
+        ))}
+      </Cards>
+    </div>
   );
 }

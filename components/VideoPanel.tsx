@@ -8,6 +8,7 @@ import CameraControl from './CameraControl';
 import Lyrics from './Lyrics';
 import SessionInfo from './SessionInfo';
 import Video from './Video';
+import Adfit from './Adfit';
 
 interface Props {
   id: string;
@@ -69,6 +70,7 @@ export default function VideoPanel({ id }: Props) {
     <div className="flex flex-col items-start lg:flex-row lg:min-h-[100vh]">
       <Video video={video} start={startPosition} onTimeChange={handleTimeChange} />
       <div className="flex flex-col flex-shrink-0 pb-xl self-stretch lg:w-[320px] overflow-hidden">
+        <Adfit width="320" height="50" unit="DAN-0xBc4CLHVwzVsuVd" />
         <SessionInfo music={music} />
         <div className="flex flex-col px-xl lg:px-md gap-md">
           <Lyrics music={music} lyrics={lyrics} time={time} />
