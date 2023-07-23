@@ -5,10 +5,10 @@ import { Metadata } from 'next';
 import AdfitResponsive from '@/components/AdfitResponsive';
 
 export const metadata: Metadata = {
-  title: 'SkyCon',
-  description: 'Make your concert in your sky',
+  title: 'Info | SkyCon',
+  description: 'SkyCon - Multicam Concert',
   openGraph: {
-    description: 'Make your concert in your sky',
+    description: 'SkyCon - Multicam Concert',
   },
 };
 
@@ -23,6 +23,13 @@ export default function MainPage() {
           <MusicCard key={music.id} music={music} />
         ))}
       </Cards>
+      <a
+        href="https://forms.gle/YRxFJsrE2amkBA3d6"
+        className="mx-auto text-[18px] font-bold italic text-white opacity-50"
+        target="_blank"
+      >
+        Feature Reqeust
+      </a>
     </div>
   );
 }

@@ -1,5 +1,13 @@
-import Link from 'next/link';
+import { Metadata } from 'next';
 import { FaGithub } from 'react-icons/fa';
+
+export const metadata: Metadata = {
+  title: 'SkyCon',
+  description: 'SkyCon - Multicam Concert',
+  openGraph: {
+    description: 'SkyCon - Multicam Concert',
+  },
+};
 
 export default function InfoPage() {
   return (
@@ -18,10 +26,18 @@ export default function InfoPage() {
           </div>
         </div>
       </div>
-      <div className="text-[16px] text-white italic opacity-70">
-        Sincerely,
-        <br />
-        Seoyun Son
+      <div className="flex flex-col gap-xs">
+        <div className="text-[16px] text-white italic opacity-70">
+          Sincerely,
+          <br />
+          Seoyun Son
+        </div>
+        <a
+          href="mailto: contact@izflix.net"
+          className="text-[16px] text-white underline opacity-70"
+        >
+          contact@izflix.net
+        </a>
       </div>
     </div>
   );
