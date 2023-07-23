@@ -9,14 +9,14 @@ export default function InfoPage() {
           <div className="text-[36px] font-bold text-white">SKYCON</div>
           <div className="text-[36px] font-normal text-white opacity-70">V1.0</div>
         </div>
-        <a href="https://github.com/delta-kor/ixvx" target="_blank">
-          <div className="flex gap-md items-center">
-            <FaGithub className="shrink-0 w-[16px] h-[16px] text-white opacity-50" />
-            <div className="text-[16px] font-normal text-white opacity-70">
+        <div className="flex gap-md items-center">
+          <FaGithub className="shrink-0 w-[16px] h-[16px] text-white opacity-50" />
+          <div className="text-[16px] font-normal text-white opacity-70">
+            <a href="https://github.com/delta-kor/ixvx" target="_blank">
               https://github.com/delta-kor/ixvx
-            </div>
+            </a>
           </div>
-        </a>
+        </div>
       </div>
       <div className="text-[16px] text-white italic opacity-70">
         Sincerely,
