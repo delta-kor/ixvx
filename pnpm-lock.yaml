@@ -4,6 +4,7 @@ specifiers:
   '@types/node': 20.3.3
   '@types/react': 18.2.14
   '@types/react-dom': 18.2.6
+  '@vercel/analytics': ^1.0.1
   autoprefixer: 10.4.14
   framer-motion: ^10.12.18
   next: 13.4.7
@@ -21,6 +22,7 @@ dependencies:
   '@types/node': 20.3.3
   '@types/react': 18.2.14
   '@types/react-dom': 18.2.6
+  '@vercel/analytics': 1.0.1
   autoprefixer: 10.4.14_postcss@8.4.24
   framer-motion: 10.12.18_biqbaboplfbrettd7655fr4n2y
   next: 13.4.7_biqbaboplfbrettd7655fr4n2y
@@ -226,6 +228,10 @@ packages:
 
   /@types/scheduler/0.16.3:
     resolution: {integrity: sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==}
+    dev: false
+
+  /@vercel/analytics/1.0.1:
+    resolution: {integrity: sha512-Ux0c9qUfkcPqng3vrR0GTrlQdqNJ2JREn/2ydrVuKwM3RtMfF2mWX31Ijqo1opSjNAq6rK76PwtANw6kl6TAow==}
     dev: false
 
   /any-promise/1.3.0:
