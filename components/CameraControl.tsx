@@ -3,6 +3,7 @@ import CameraChip from './CameraChip';
 import Icon from './Icon';
 import Jelly from './Jelly';
 import IXVX from '@/lib/ixvx';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const VideoTypesOrder: VideoType[] = [
   'main',
@@ -52,6 +53,10 @@ export default function CameraControl({
   const groupVideos = videos
     .filter((video) => !video.member)
     .sort((a, b) => VideoTypesOrder.indexOf(a.type) - VideoTypesOrder.indexOf(b.type));
+
+  const headVideos = groupVideos.filter((video) => ['main', 'full'].includes(video.type));
+  const tailVideos = groupVideos.filter((video) => !headVideos.includes(video));
+
   const membersMap = new ArrayMap<string, Video>();
 
   const members = IXVX.getMembers(sessionId);
@@ -86,8 +91,8 @@ export default function CameraControl({
       </div>
 
       <hr className="w-full border-background" />
-      <div className="grid grid-cols-2 self-stretch gap-sm">
-        {groupVideos.map((video) => (
+      <div className="flex justify-stretch self-stretch gap-sm">
+        {headVideos.map((video) => (
           <CameraChip
             key={video.id}
             video={video}
@@ -98,30 +103,54 @@ export default function CameraControl({
       </div>
 
       <div className="flex flex-col self-stretch gap-sm">
-        {membersMap.getAll().map(([member, videos]) => (
-          <div key={member} className="flex justify-between min-h-[32px]">
-            <div className="flex gap-sm items-center">
-              <div className="text-[16px] text-white truncate">{member}</div>
-              {currentMember &&
-                (currentMember.includes(member) || currentMember.includes('All')) && (
-                  <Icon type="mic" className="w-[18px] h-[18px] text-primary" />
-                )}
+        <AnimatePresence>
+          {membersMap.getAll().map(([member, videos]) => (
+            <div key={member} className="flex justify-between min-h-[32px]">
+              <div className="flex gap-sm items-center">
+                <div className="text-[16px] text-white truncate">{member}</div>
+                {currentMember &&
+                  (currentMember.includes(member) || currentMember.includes('All')) && (
+                    <motion.div
+                      key={member + 'mic'}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                    >
+                      <Icon type="mic" className="w-[18px] h-[18px] text-primary" />
+                    </motion.div>
+                  )}
+              </div>
+              <div className="flex flex-wrap justify-end items-center gap-sm">
+                {videos
+                  .sort((a, b) => VideoTypesOrder.indexOf(a.type) - VideoTypesOrder.indexOf(b.type))
+                  .map((video) => (
+                    <CameraChip
+                      key={video.id}
+                      video={video}
+                      active={video.id === videoId}
+                      onClick={() => onVideoChange(video)}
+                    />
+                  ))}
+              </div>
             </div>
-            <div className="flex flex-wrap justify-end items-center gap-sm">
-              {videos
-                .sort((a, b) => VideoTypesOrder.indexOf(a.type) - VideoTypesOrder.indexOf(b.type))
-                .map((video) => (
-                  <CameraChip
-                    key={video.id}
-                    video={video}
-                    active={video.id === videoId}
-                    onClick={() => onVideoChange(video)}
-                  />
-                ))}
-            </div>
-          </div>
-        ))}
+          ))}
+        </AnimatePresence>
       </div>
+      {!!tailVideos.length && (
+        <>
+          <hr className="w-full border-background" />
+          <div className="grid grid-cols-2 self-stretch gap-sm">
+            {tailVideos.map((video) => (
+              <CameraChip
+                key={video.id}
+                video={video}
+                active={video.id === videoId}
+                onClick={() => onVideoChange(video)}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }

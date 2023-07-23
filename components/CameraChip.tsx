@@ -24,8 +24,8 @@ export default function CameraChip({ video: { type }, active, onClick }: Props) 
       <Jelly
         small
         onClick={onClick}
-        className={`flex justify-center items-center w-[32px] h-[32px] rounded-sm cursor-pointer select-none transition-colors ${
-          active ? 'bg-primary' : 'bg-lightgray'
+        className={`flex justify-center items-center w-[32px] h-[32px] rounded-sm cursor-pointer select-none ${
+          active ? 'bg-gradient-to-r from-primary to-lightprimary' : 'bg-lightgray'
         }`}
       >
         <SvgIcon
@@ -40,8 +40,8 @@ export default function CameraChip({ video: { type }, active, onClick }: Props) 
     <Jelly
       small
       onClick={onClick}
-      className={`flex px-sm py-[6px] w-full flex-grow justify-center items-center gap-sm rounded-sm cursor-pointer select-none transition-colors ${
-        active ? 'bg-primary' : 'bg-lightgray'
+      className={`flex px-sm py-[6px] w-full flex-grow justify-center items-center gap-sm rounded-sm cursor-pointer select-none ${
+        active ? 'bg-gradient-to-r from-primary to-lightprimary' : 'bg-lightgray'
       }`}
     >
       <SvgIcon type="horizontal" className="flex-shrink-0 w-[20px]" />

@@ -1,4 +1,5 @@
 import { IconBaseProps } from 'react-icons';
+import { FaFeather } from 'react-icons/fa';
 import {
   BiChevronLeft,
   BiChevronRight,
@@ -13,6 +14,7 @@ const Icons = {
   chevron_left: BiChevronLeft,
   camera: BiSolidVideo,
   mic: BiSolidVolumeFull,
+  info: FaFeather,
 };
 
 export type IconType = keyof typeof Icons;
