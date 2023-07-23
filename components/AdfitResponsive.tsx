@@ -2,9 +2,17 @@
 
 import { useMediaQuery } from 'react-responsive';
 import Adfit from './Adfit';
+import { useEffect, useState } from 'react';
 
 export default function AdfitResponsive() {
+  const [domLoaded, setDomLoaded] = useState(false);
   const isMobile = useMediaQuery({ query: '(max-width:768px)' });
+
+  useEffect(() => {
+    setDomLoaded(true);
+  }, []);
+
+  if (!domLoaded) return null;
 
   if (isMobile)
     return (

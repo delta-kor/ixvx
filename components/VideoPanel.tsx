@@ -68,6 +68,7 @@ export default function VideoPanel({ id }: Props) {
 
   return (
     <div className="flex flex-col items-start lg:flex-row lg:min-h-[100vh]">
+      <div className="max-h-[50vh] w-full aspect-video lg:hidden"></div>
       <Video video={video} start={startPosition} onTimeChange={handleTimeChange} />
       <div className="flex flex-col flex-shrink-0 pb-xl self-stretch lg:w-[320px] overflow-hidden">
         <Adfit width="320" height="50" unit="DAN-0xBc4CLHVwzVsuVd" />

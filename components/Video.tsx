@@ -40,7 +40,11 @@ export default function Video({ video: { id }, start, onTimeChange }: Props) {
   };
 
   return (
-    <div className={'w-full aspect-video lg:h-[100vh] lg:aspect-auto bg-gray'}>
+    <div
+      className={
+        'fixed top-[0] left-[0] w-full aspect-video max-h-[50vh] lg:static lg:h-[100vh] lg:aspect-auto lg:max-h-none bg-gray z-10'
+      }
+    >
       <Youtube
         videoId={videoIdRef.current}
         className={'w-full h-full'}

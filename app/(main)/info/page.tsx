@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { FaGithub } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-  title: 'SkyCon',
+  title: 'Info | SkyCon',
   description: 'SkyCon - Multicam Concert',
   openGraph: {
     description: 'SkyCon - Multicam Concert',
